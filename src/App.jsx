@@ -210,7 +210,7 @@ function DatePlanner() {
     if (selectedOption && date && time && mobile) {
       try {
         const selectedActivity = options.find((o) => o.id === selectedOption);
-        const response = await fetch("http://localhost:3001/api/save-date", {
+        const response = await fetch("/api/save-date", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -372,7 +372,7 @@ function DateCountdown() {
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/date/${id}`)
+    fetch(`/api/date?id=${id}`)
       .then((res) => res.json())
       .then((data) => setDatePlan(data))
       .catch((err) => console.error("Error fetching date:", err));
