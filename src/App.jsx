@@ -189,7 +189,7 @@ function DatePlanner() {
       id: 2,
       label: "Romantic Candlelit Dinner 🍷",
       image: "/IMG_3392.jpg",
-      desc: "Good food, dim lights, and the best company in the world. A night to remember.",
+      desc: "Good food, dim lights, and the best company in the world. A eve to remember.",
     },
     {
       id: 3,
@@ -199,9 +199,9 @@ function DatePlanner() {
     },
     {
       id: 4,
-      label: "PS5 & Chill Night 🎮",
+      label: "PS5 & Chill Eve 🎮",
       image: "/IMG_3394.jpg",
-      desc: "Gaming, snacks, and cuddles. Let's see who wins (spoiler: I'll let you win).",
+      desc: "Gaming, snacks, and Jokes. Let's see who wins (spoiler: I'll let you win).",
     },
   ];
 
