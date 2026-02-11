@@ -303,8 +303,6 @@ function DatePlanner() {
                   <input
                     type="date"
                     required
-                    min={new Date().toLocaleDateString("en-CA")}
-                    max="2026-02-15"
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
                     className="w-full p-4 rounded-xl border-2 border-rose-100 bg-rose-50/50 focus:border-rose-400 focus:ring-4 focus:ring-rose-100 transition-all outline-none text-zinc-700 font-medium"
