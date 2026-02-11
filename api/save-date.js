@@ -16,12 +16,15 @@ export default async function handler(req, res) {
   }
 
   try {
+    // Generate a random 6-character slug (like 'aB3d9z')
+    const slug = Math.random().toString(36).substring(2, 8) + Math.random().toString(36).substring(2, 4);
+    
     const query = `
-        INSERT INTO Valentine_DatePlan (activity_id, activity_label, date_planned, time_planned, mobile)
-        VALUES (?, ?, ?, ?, ?)
+        INSERT INTO Valentine_DatePlan (activity_id, activity_label, date_planned, time_planned, mobile, slug)
+        VALUES (?, ?, ?, ?, ?, ?)
     `;
-    const [result] = await pool.execute(query, [activityId, activityLabel, date, time, mobile]);
-    res.status(200).json({ success: true, message: "Date plan saved successfully!", id: result.insertId });
+    const [result] = await pool.execute(query, [activityId, activityLabel, date, time, mobile, slug]);
+    res.status(200).json({ success: true, message: "Date plan saved successfully!", id: slug }); // Return slug as id for frontend compatibility
   } catch (error) {
     console.error("Error saving date plan:", error);
     res.status(500).json({ error: "Database error" });

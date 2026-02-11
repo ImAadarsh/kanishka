@@ -226,6 +226,7 @@ function DatePlanner() {
 
         if (response.ok) {
           const data = await response.json();
+          // The API now returns a slug as 'id'
           navigate(`/date/${data.id}`);
         } else {
           alert("Something went wrong, but I still love you! Try again?");

@@ -16,8 +16,9 @@ export default async function handler(req, res) {
   }
 
   try {
-    const query = 'SELECT * FROM Valentine_DatePlan WHERE id = ?';
-    const [results] = await pool.execute(query, [id]);
+    // Try to find by slug first, then ID (for backward compatibility if needed, though id is int)
+    const query = 'SELECT * FROM Valentine_DatePlan WHERE slug = ? OR id = ?';
+    const [results] = await pool.execute(query, [id, id]);
 
     if (results.length === 0) {
       return res.status(404).json({ error: "Date plan not found" });
